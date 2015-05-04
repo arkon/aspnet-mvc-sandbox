@@ -4,7 +4,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MvcMovie.Models
 {
-    public class Movie : Merch
+    public class Song : Merch
     {
+        [Required]
+        public string Artist { get; set; }
     }
 }

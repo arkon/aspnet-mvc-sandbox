@@ -184,25 +184,20 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
+    <Compile Include="Controllers\MusicController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201505041805518_initial.cs" />
-    <Compile Include="Migrations\201505041805518_initial.Designer.cs">
-      <DependentUpon>201505041805518_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201505041945010_AddRatingMig.cs" />
-    <Compile Include="Migrations\201505041945010_AddRatingMig.Designer.cs">
-      <DependentUpon>201505041945010_AddRatingMig.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201505041954374_AddDataAnnotationsMig.cs" />
-    <Compile Include="Migrations\201505041954374_AddDataAnnotationsMig.Designer.cs">
-      <DependentUpon>201505041954374_AddDataAnnotationsMig.cs</DependentUpon>
+    <Compile Include="Migrations\201505042332550_InitialMig.cs" />
+    <Compile Include="Migrations\201505042332550_InitialMig.Designer.cs">
+      <DependentUpon>201505042332550_InitialMig.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\Merch.cs" />
     <Compile Include="Models\Movie.cs" />
+    <Compile Include="Models\Song.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -310,7 +305,6 @@
     <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
@@ -322,6 +316,11 @@
     <Content Include="Views\Movies\Edit.cshtml" />
     <Content Include="Views\Movies\Delete.cshtml" />
     <Content Include="Views\Movies\Search.cshtml" />
+    <Content Include="Views\Music\Index.cshtml" />
+    <Content Include="Views\Music\Details.cshtml" />
+    <Content Include="Views\Music\Create.cshtml" />
+    <Content Include="Views\Music\Edit.cshtml" />
+    <Content Include="Views\Music\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -330,14 +329,8 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201505041805518_initial.resx">
-      <DependentUpon>201505041805518_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505041945010_AddRatingMig.resx">
-      <DependentUpon>201505041945010_AddRatingMig.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505041954374_AddDataAnnotationsMig.resx">
-      <DependentUpon>201505041954374_AddDataAnnotationsMig.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201505042332550_InitialMig.resx">
+      <DependentUpon>201505042332550_InitialMig.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

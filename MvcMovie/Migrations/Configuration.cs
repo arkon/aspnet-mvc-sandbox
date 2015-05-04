@@ -6,14 +6,14 @@ namespace MvcMovie.Migrations
     using System.Linq;
     using MvcMovie.Models;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<MvcMovie.Models.MovieDBContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<MvcMovie.Models.MerchDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(MvcMovie.Models.MovieDBContext context)
+        protected override void Seed(MvcMovie.Models.MerchDbContext context)
         {
             context.Movies.AddOrUpdate(i => i.Title,
                 new Movie
@@ -27,7 +27,7 @@ namespace MvcMovie.Migrations
 
                 new Movie
                 {
-                    Title = "Ghostbusters ",
+                    Title = "Ghostbusters",
                     ReleaseDate = DateTime.Parse("1984-3-13"),
                     Genre = "Comedy",
                     Rating = "G",
@@ -50,6 +50,29 @@ namespace MvcMovie.Migrations
                     Genre = "Western",
                     Rating = "PG",
                     Price = 3.99M
+                }
+            );
+
+
+            context.Songs.AddOrUpdate(i => i.Title,
+                new Song
+                {
+                    Title = "What",
+                    Artist = "Someone",
+                    ReleaseDate = DateTime.Parse("1989-1-11"),
+                    Genre = "Romantic Comedy",
+                    Rating = "G",
+                    Price = 7.99M
+                },
+
+                new Song
+                {
+                    Title = "Wow!",
+                    Artist = "Someone",
+                    ReleaseDate = DateTime.Parse("1984-3-13"),
+                    Genre = "Comedy",
+                    Rating = "G",
+                    Price = 8.99M
                 }
             );
         }

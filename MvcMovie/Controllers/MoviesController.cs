@@ -11,7 +11,7 @@ namespace MvcMovie.Controllers
 {
     public class MoviesController : Controller
     {
-        private MovieDBContext db = new MovieDBContext();
+        private MerchDbContext db = new MerchDbContext();
 
         //
         // GET: /Movies/

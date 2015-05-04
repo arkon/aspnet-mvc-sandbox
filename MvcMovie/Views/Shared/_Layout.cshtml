@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <title>@ViewBag.Title - MVC Movie</title>
+        <title>@ViewBag.Title - HMV</title>
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <meta name="viewport" content="width=device-width" />
         @Styles.Render("~/Content/css")
@@ -12,7 +12,7 @@
         <header>
             <div class="content-wrapper">
                 <div class="float-left">
-                    <p class="site-title">@Html.ActionLink("MVC Movie", "Index", "Home")</p>
+                    <p class="site-title">@Html.ActionLink("HMV", "Index", "Home")</p>
                 </div>
                 <div class="float-right">
                     <section id="login">
@@ -22,9 +22,15 @@
                         <ul id="menu">
                             <li>@Html.ActionLink("Home", "Index", "Home")</li>
                             <li>@Html.ActionLink("About", "About", "Home")</li>
-                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                         </ul>
                     </nav>
+                    @using (Html.BeginForm())
+                    {
+                        <p>
+                            @Html.TextBox("title", "", new { placeholder="Search" })<br />
+                            <input type="submit" value="Filter" />
+                        </p>
+                    }
                 </div>
             </div>
         </header>
@@ -37,7 +43,7 @@
         <footer>
             <div class="content-wrapper">
                 <div class="float-left">
-                    <p>&copy; @DateTime.Now.Year - MVC Movie</p>
+                    <p>&copy; @DateTime.Now.Year HMV</p>
                 </div>
             </div>
         </footer>
