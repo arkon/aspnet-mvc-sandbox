@@ -12,9 +12,6 @@ namespace TrackaryASP.Models
 
         public string Description { get; set; }
 
-        [DataType(DataType.ImageUrl)]
-        public string Image { get; set; }
-
         [DataType(DataType.Currency)]
         public decimal Price { get; set; }
 
@@ -28,5 +25,8 @@ namespace TrackaryASP.Models
                 return Quantity > 0;
             }
         }
+
+        [DataType(DataType.ImageUrl)]
+        public string Image { get; set; }
     }
 }

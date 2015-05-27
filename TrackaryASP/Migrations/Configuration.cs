@@ -4,6 +4,7 @@ namespace TrackaryASP.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using TrackaryASP.Models;
 
     internal sealed class Configuration : DbMigrationsConfiguration<TrackaryASP.Models.TrackaryDbContext>
     {
@@ -15,17 +16,23 @@ namespace TrackaryASP.Migrations
 
         protected override void Seed(TrackaryASP.Models.TrackaryDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
+            context.Products.AddOrUpdate(
+                new Product {
+                    Name = "Coca Cola",
+                    Description = "Refreshing beverage",
+                    Price = 0.75M,
+                    Quantity = 100,
+                    Image = "coke.jpg"
+                },
+                new Product
+                {
+                    Name = "Fanta (Orange)",
+                    Description = "Orange beverage",
+                    Price = 0.75M,
+                    Quantity = 50,
+                    Image = "fanta.jpg"
+                }
+            );
         }
     }
 }

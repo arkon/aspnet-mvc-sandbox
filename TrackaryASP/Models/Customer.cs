@@ -13,8 +13,10 @@ namespace TrackaryASP.Models
         public string Email { get; set; }
 
         [Required]
+        [Display(Name = "Student number")]
         public int StudentNumber { get; set; }
 
+        [Display(Name = "TCard Barcode")]
         public int TCardBarcode { get; set; }
     }
 }
