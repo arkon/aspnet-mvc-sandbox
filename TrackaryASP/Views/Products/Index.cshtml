@@ -9,15 +9,17 @@
     <div class="well col-md-4 col-md-push-8">
         <h2>Cart</h2>
         <ul>
-            @*@foreach (var item in (Session["CartData"] as CartSessionData).Products)
+            @foreach (var item in (Session["CartData"] as TrackaryASP.Models.Cart).Products)
             {
                 <li>
-                    @Html.DisplayFor(item.Price)
+                    @Html.DisplayFor(productItem => item.Name):
+                    @Html.DisplayFor(productItem => item.Price)
                 </li>
-            }*@
+            }
         </ul>
 
         <div class="pull-right">
+            <p>Total: $@((Session["CartData"] as TrackaryASP.Models.Cart).TotalCost.ToString())</p>
             <a href="@Url.Action("Clear", "Cart")" class="btn btn-default">Clear</a>
             <a href="@Url.Action("Checkout", "Cart")" class="btn btn-primary">Checkout</a>
         </div>

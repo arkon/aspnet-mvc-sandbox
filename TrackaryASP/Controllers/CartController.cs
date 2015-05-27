@@ -29,7 +29,7 @@ namespace TrackaryASP.Controllers
                 cartData.Products.Add(product);
             }
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Products");
         }
 
         // POST: Cart/Clear
@@ -39,7 +39,7 @@ namespace TrackaryASP.Controllers
         {
             this.Session["CartData"] = null;
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Products");
         }
     }
 }

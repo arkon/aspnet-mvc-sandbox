@@ -13,6 +13,7 @@ namespace TrackaryASP.Models
 
         public virtual ICollection<Product> Products { get; set; }
 
+        [DataType(DataType.Currency)]
         public decimal TotalCost
         {
             get
