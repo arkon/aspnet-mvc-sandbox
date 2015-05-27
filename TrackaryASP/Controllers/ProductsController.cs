@@ -1,11 +1,11 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
 using TrackaryASP.Models;
-using TrackaryASP.ViewModels;
 
 namespace TrackaryASP.Controllers
 {
@@ -16,11 +16,17 @@ namespace TrackaryASP.Controllers
         // GET: Products
         public ActionResult Index()
         {
-            ProductCartViewModel vm = new ProductCartViewModel();
-            vm.Products = db.Products.ToList();
-            vm.Cart = new CartSessionData();
+            if (this.Session["CartData"] == null)
+            {
+                var cartData = new Cart
+                {
+                    Products = new List<Product>()
+                };
 
-            return View(vm);
+                this.Session["CartData"] = cartData;
+            }
+
+            return View(db.Products.ToList());
         }
 
         // GET: Products/Details/5

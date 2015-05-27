@@ -182,6 +182,14 @@
     <Compile Include="Migrations\201505271910470_UpdateCart.Designer.cs">
       <DependentUpon>201505271910470_UpdateCart.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201505272039357_RefactorCartSessions.cs" />
+    <Compile Include="Migrations\201505272039357_RefactorCartSessions.Designer.cs">
+      <DependentUpon>201505272039357_RefactorCartSessions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201505272050348_RefactorCartSessions2.cs" />
+    <Compile Include="Migrations\201505272050348_RefactorCartSessions2.Designer.cs">
+      <DependentUpon>201505272050348_RefactorCartSessions2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -189,7 +197,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Product.cs" />
-    <Compile Include="ViewModels\ProductCartViewModel.cs" />
+    <Compile Include="Models\Transaction.cs" />
     <Compile Include="Models\TrackaryDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -261,7 +269,6 @@
     <Content Include="Views\Cart\Checkout.cshtml" />
     <Content Include="Views\Cart\Edit.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
-    <Content Include="Views\Shared\_CartPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -285,6 +292,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201505271910470_UpdateCart.resx">
       <DependentUpon>201505271910470_UpdateCart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505272039357_RefactorCartSessions.resx">
+      <DependentUpon>201505272039357_RefactorCartSessions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505272050348_RefactorCartSessions2.resx">
+      <DependentUpon>201505272050348_RefactorCartSessions2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

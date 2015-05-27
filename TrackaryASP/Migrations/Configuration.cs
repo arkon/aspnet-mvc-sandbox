@@ -8,6 +8,8 @@ namespace TrackaryASP.Migrations
 
     internal sealed class Configuration : DbMigrationsConfiguration<TrackaryASP.Models.TrackaryDbContext>
     {
+        private static Boolean SEED = false;
+
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
@@ -16,23 +18,27 @@ namespace TrackaryASP.Migrations
 
         protected override void Seed(TrackaryASP.Models.TrackaryDbContext context)
         {
-            context.Products.AddOrUpdate(
-                new Product {
-                    Name = "Coca Cola",
-                    Description = "Refreshing beverage",
-                    Price = 0.75M,
-                    Quantity = 100,
-                    Image = "coke.jpg"
-                },
-                new Product
-                {
-                    Name = "Fanta (Orange)",
-                    Description = "Orange beverage",
-                    Price = 0.75M,
-                    Quantity = 50,
-                    Image = "fanta.jpg"
-                }
-            );
+            if (SEED)
+            {
+                context.Products.AddOrUpdate(
+                    new Product
+                    {
+                        Name = "Coca Cola",
+                        Description = "Refreshing beverage",
+                        Price = 0.75M,
+                        Quantity = 100,
+                        Image = "coke.jpg"
+                    },
+                    new Product
+                    {
+                        Name = "Fanta (Orange)",
+                        Description = "Orange beverage",
+                        Price = 0.75M,
+                        Quantity = 50,
+                        Image = "fanta.jpg"
+                    }
+                );
+            }
         }
     }
 }
