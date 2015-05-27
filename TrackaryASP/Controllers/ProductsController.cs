@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using TrackaryASP.Models;
 
 namespace TrackaryASP.Controllers
@@ -42,14 +40,22 @@ namespace TrackaryASP.Controllers
         }
 
         // POST: Products/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,Description,Quantity")] Product product)
+        public ActionResult Create(
+            [Bind(Include = "ID,Name,Description,Price,Quantity,Image")] Product product, HttpPostedFileBase Image)
         {
             if (ModelState.IsValid)
             {
+                if (Image != null)
+                {
+                    string imagePath = "~/Images/";
+                    if (!System.IO.Directory.Exists(Server.MapPath(imagePath)))
+                        System.IO.Directory.CreateDirectory(Server.MapPath(imagePath));
+
+                    Image.SaveAs(HttpContext.Server.MapPath(imagePath) + Image.FileName);
+                    product.Image = Image.FileName;
+                }
                 db.Products.Add(product);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -74,8 +80,6 @@ namespace TrackaryASP.Controllers
         }
 
         // POST: Products/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID,Name,Description,Quantity")] Product product)

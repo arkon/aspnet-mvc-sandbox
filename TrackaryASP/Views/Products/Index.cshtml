@@ -5,42 +5,46 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<a href="@Url.Action("Create")" class="btn btn-primary btn-fab btn-raised mdi-content-add"></a>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Quantity)
-        </th>
-        <th></th>
-    </tr>
+<ul>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Quantity)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <li class="product-item panel panel-default">
+            <div class="panel-body">
+                <div class="panel-heading">
+                    @if (item.Image != null)
+                    {
+                        <img src="~/Images/@Url.Content(item.Image)" alt="Product image" />
+                    }
+                </div>
+                <h2>
+                    @Html.ActionLink(item.Name, "Details", new { id = item.ID })
+                </h2>
+                <h3>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </h3>
+                <p>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </p>
+                <p>
+                    @if (item.InStock)
+                    {
+                        @Html.DisplayNameFor(model => model.Quantity)
+                        @Html.Raw(": ")
+                        @Html.DisplayFor(modelItem => item.Quantity)
+                    }
+                    else
+                    {
+                        @Html.Raw("Out of stock")
+                    }
+                </p>
+            </div>
+            <div class="panel-footer">
+                <button class="btn btn-default">Add to Cart</button>
+            </div>
+        </li>
+    }
 
-</table>
+</ul>

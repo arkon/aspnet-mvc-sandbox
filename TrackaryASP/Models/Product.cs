@@ -14,10 +14,10 @@ namespace TrackaryASP.Models
         [DataType(DataType.ImageUrl)]
         public string Image { get; set; }
 
-        [Range(1, 100)]
         [DataType(DataType.Currency)]
         public decimal Price { get; set; }
 
+        [Range(1, 1000)]
         public int Quantity { get; set; }
 
         public bool InStock
