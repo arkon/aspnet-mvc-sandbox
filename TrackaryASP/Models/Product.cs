@@ -4,6 +4,7 @@ namespace TrackaryASP.Models
 {
     public class Product
     {
+        [Key]
         public int ID { get; set; }
 
         [Required]
