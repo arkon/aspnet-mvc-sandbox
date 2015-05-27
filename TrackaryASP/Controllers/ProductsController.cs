@@ -18,7 +18,7 @@ namespace TrackaryASP.Controllers
         {
             ProductCartViewModel vm = new ProductCartViewModel();
             vm.Products = db.Products.ToList();
-            vm.Cart = db.Carts.ToList();
+            vm.Cart = new CartSessionData();
 
             return View(vm);
         }
@@ -87,10 +87,19 @@ namespace TrackaryASP.Controllers
         // POST: Products/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,Description,Quantity")] Product product)
+        public ActionResult Edit([Bind(Include = "ID,Name,Description,Price,Quantity,Image")] Product product, HttpPostedFileBase Image)
         {
             if (ModelState.IsValid)
             {
+                if (Image != null)
+                {
+                    string imagePath = "~/Images/";
+                    if (!System.IO.Directory.Exists(Server.MapPath(imagePath)))
+                        System.IO.Directory.CreateDirectory(Server.MapPath(imagePath));
+
+                    Image.SaveAs(HttpContext.Server.MapPath(imagePath) + Image.FileName);
+                    product.Image = Image.FileName;
+                }
                 db.Entry(product).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

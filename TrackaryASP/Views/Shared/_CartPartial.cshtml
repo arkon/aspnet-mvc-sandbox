@@ -1,3 +1,15 @@
-﻿@model IEnumerable<TrackaryASP.Models.Cart>
+﻿@model TrackaryASP.Models.Cart
 
-<h3>CART PARTIAL</h3>
+<ul>
+    @foreach (var item in Model.Products)
+    { 
+        <li>
+            @*@Html.DisplayFor(item.Price)*@
+        </li>
+    }
+</ul>
+
+<div class="pull-right">
+    <a href="@Url.Action("Clear", "Cart", new { id = Model.ID })" class="btn btn-default">Clear</a>
+    <a href="@Url.Action("Create", "Cart")" class="btn btn-primary">Checkout</a>
+</div>

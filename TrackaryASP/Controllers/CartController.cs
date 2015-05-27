@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using TrackaryASP.Models;
 
@@ -20,14 +16,14 @@ namespace TrackaryASP.Controllers
             return View(db.Carts.ToList());
         }
 
-        // GET: Cart/Details/5
-        public ActionResult Details(int? id)
+        // GET: Cart/Checkout/5
+        public ActionResult Checkout(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cart cart = db.Carts.Find(id);
+            CartSessionData cart = db.Carts.Find(id);
             if (cart == null)
             {
                 return HttpNotFound();
@@ -42,11 +38,9 @@ namespace TrackaryASP.Controllers
         }
 
         // POST: Cart/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID")] Cart cart)
+        public ActionResult Create([Bind(Include = "ID")] CartSessionData cart)
         {
             if (ModelState.IsValid)
             {
@@ -58,6 +52,43 @@ namespace TrackaryASP.Controllers
             return View(cart);
         }
 
+        // POST: Cart/AddItem/5?productID=2
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddItem(int? id, int productID)
+        {
+            if (ModelState.IsValid)
+            {
+                Product product = db.Products.Find(productID);
+                if (product != null)
+                {
+                    CartSessionData entry = db.Carts.Find(id);
+                    if (entry != null)
+                    {
+                        entry.Products.Add(product);
+                        //db.Entry(entry).State = EntityState.Modified;
+                        db.SaveChanges();
+                    }
+                }
+            }
+            return RedirectToAction("Index");
+        }
+
+        // POST: Cart/Clear/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Clear([Bind(Include = "ID")] CartSessionData cart)
+        {
+            if (ModelState.IsValid)
+            {
+                cart.Products.Clear();
+                db.Entry(cart).State = EntityState.Modified;
+                db.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
+        
+
         // GET: Cart/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -65,7 +96,7 @@ namespace TrackaryASP.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cart cart = db.Carts.Find(id);
+            CartSessionData cart = db.Carts.Find(id);
             if (cart == null)
             {
                 return HttpNotFound();
@@ -74,11 +105,9 @@ namespace TrackaryASP.Controllers
         }
 
         // POST: Cart/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID")] Cart cart)
+        public ActionResult Edit([Bind(Include = "ID")] CartSessionData cart)
         {
             if (ModelState.IsValid)
             {
@@ -96,7 +125,7 @@ namespace TrackaryASP.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cart cart = db.Carts.Find(id);
+            CartSessionData cart = db.Carts.Find(id);
             if (cart == null)
             {
                 return HttpNotFound();
@@ -109,7 +138,7 @@ namespace TrackaryASP.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Cart cart = db.Carts.Find(id);
+            CartSessionData cart = db.Carts.Find(id);
             db.Carts.Remove(cart);
             db.SaveChanges();
             return RedirectToAction("Index");

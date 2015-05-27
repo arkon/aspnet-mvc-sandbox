@@ -28,6 +28,10 @@ textarea {
     position: relative;
 }
 
+.fab-container {
+    padding-bottom: 6em;
+}
+
 .btn-fab {
     position: absolute !important;
     bottom: 1em;

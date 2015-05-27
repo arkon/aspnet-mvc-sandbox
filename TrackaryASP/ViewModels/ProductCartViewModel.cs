@@ -6,6 +6,6 @@ namespace TrackaryASP.ViewModels
     public class ProductCartViewModel
     {
         public IEnumerable<Product> Products { get; set; }
-        public IEnumerable<Cart> Cart { get; set; }
+        public CartSessionData Cart { get; set; }
     }
 }

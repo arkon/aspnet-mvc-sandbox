@@ -5,8 +5,7 @@ using System.Web;
 
 namespace TrackaryASP.Models
 {
-    public class Purchase
+    public class Transaction
     {
-        public int ID { get; set; }
     }
 }

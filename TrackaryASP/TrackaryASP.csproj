@@ -178,6 +178,10 @@
     <Compile Include="Migrations\201505271603358_TCardString.Designer.cs">
       <DependentUpon>201505271603358_TCardString.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201505271910470_UpdateCart.cs" />
+    <Compile Include="Migrations\201505271910470_UpdateCart.Designer.cs">
+      <DependentUpon>201505271910470_UpdateCart.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -186,7 +190,6 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="ViewModels\ProductCartViewModel.cs" />
-    <Compile Include="Models\Purchase.cs" />
     <Compile Include="Models\TrackaryDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -255,7 +258,7 @@
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Cart\Create.cshtml" />
     <Content Include="Views\Cart\Delete.cshtml" />
-    <Content Include="Views\Cart\Details.cshtml" />
+    <Content Include="Views\Cart\Checkout.cshtml" />
     <Content Include="Views\Cart\Edit.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Shared\_CartPartial.cshtml" />
@@ -279,6 +282,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201505271603358_TCardString.resx">
       <DependentUpon>201505271603358_TCardString.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505271910470_UpdateCart.resx">
+      <DependentUpon>201505271910470_UpdateCart.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
