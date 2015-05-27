@@ -159,6 +159,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
@@ -173,6 +174,10 @@
     <Compile Include="Migrations\201505271522164_Initial.Designer.cs">
       <DependentUpon>201505271522164_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201505271603358_TCardString.cs" />
+    <Compile Include="Migrations\201505271603358_TCardString.Designer.cs">
+      <DependentUpon>201505271603358_TCardString.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -180,6 +185,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="ViewModels\ProductCartViewModel.cs" />
     <Compile Include="Models\Purchase.cs" />
     <Compile Include="Models\TrackaryDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -245,9 +251,14 @@
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Customers\Create.cshtml" />
     <Content Include="Views\Customers\Delete.cshtml" />
-    <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Customers\Edit.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
+    <Content Include="Views\Cart\Create.cshtml" />
+    <Content Include="Views\Cart\Delete.cshtml" />
+    <Content Include="Views\Cart\Details.cshtml" />
+    <Content Include="Views\Cart\Edit.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Shared\_CartPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -265,6 +276,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201505271522164_Initial.resx">
       <DependentUpon>201505271522164_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505271603358_TCardString.resx">
+      <DependentUpon>201505271603358_TCardString.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

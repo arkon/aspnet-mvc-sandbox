@@ -52,3 +52,7 @@ textarea {
         max-height: 250px;
         max-width: 90%;
     }
+
+    .product-item .panel-footer {
+        text-align: center;
+    }

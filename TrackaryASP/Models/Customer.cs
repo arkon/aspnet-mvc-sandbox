@@ -10,6 +10,7 @@ namespace TrackaryASP.Models
         public string Name { get; set; }
 
         [DataType(DataType.EmailAddress)]
+        [Display(Name = "Email address")]
         public string Email { get; set; }
 
         [Required]
@@ -17,6 +18,6 @@ namespace TrackaryASP.Models
         public int StudentNumber { get; set; }
 
         [Display(Name = "TCard Barcode")]
-        public int TCardBarcode { get; set; }
+        public string TCardBarcode { get; set; }
     }
 }

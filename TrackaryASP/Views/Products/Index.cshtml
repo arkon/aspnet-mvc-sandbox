@@ -1,50 +1,60 @@
-﻿@model IEnumerable<TrackaryASP.Models.Product>
+﻿@model TrackaryASP.ViewModels.ProductCartViewModel
 
 @{
     ViewBag.Title = "Products";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<a href="@Url.Action("Create")" class="btn btn-primary btn-fab btn-raised mdi-content-add"></a>
+<div class="row">
+    <div class="col-md-9">
+        <h2>Products</h2>
 
-<ul>
+        <a href="@Url.Action("Create")" class="btn btn-primary btn-fab btn-raised mdi-content-add"></a>
 
-    @foreach (var item in Model)
-    {
-        <li class="product-item panel panel-default">
-            <div class="panel-body">
-                <div class="panel-heading">
-                    @if (item.Image != null)
-                    {
-                        <img src="~/Images/@Url.Content(item.Image)" alt="Product image" />
-                    }
-                </div>
-                <h2>
-                    @Html.ActionLink(item.Name, "Details", new { id = item.ID })
-                </h2>
-                <h3>
-                    @Html.DisplayFor(modelItem => item.Price)
-                </h3>
-                <p>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </p>
-                <p>
-                    @if (item.InStock)
-                    {
-                        @Html.DisplayNameFor(model => model.Quantity)
-                        @Html.Raw(": ")
-                        @Html.DisplayFor(modelItem => item.Quantity)
-                    }
-                    else
-                    {
-                        @Html.Raw("Out of stock")
-                    }
-                </p>
-            </div>
-            <div class="panel-footer">
-                <button class="btn btn-default">Add to Cart</button>
-            </div>
-        </li>
-    }
+        <ul>
 
-</ul>
+            @foreach (var item in Model.Products)
+            {
+                <li class="product-item panel panel-default">
+                    <div class="panel-body">
+                        <div class="panel-heading">
+                            @if (item.Image != null)
+                            {
+                                <img src="~/Images/@Url.Content(item.Image)" alt="Product image" />
+                            }
+                        </div>
+                        <h2>
+                            @Html.ActionLink(item.Name, "Details", new { id = item.ID })
+                        </h2>
+                        <h3>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </h3>
+                        <p>
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </p>
+                        <p>
+                            @if (item.InStock)
+                            {
+                                @Html.Raw("Quantity: ")
+                                @Html.DisplayFor(modelItem => item.Quantity)
+                            }
+                            else
+                            {
+                                @Html.Raw("Out of stock")
+                            }
+                        </p>
+                    </div>
+                    <div class="panel-footer">
+                        <button class="btn btn-default">Add to Cart</button>
+                    </div>
+                </li>
+            }
+
+        </ul>
+    </div>
+
+    <div class="col-md-3">
+        <h2>Cart</h2>
+        @Html.Partial("_CartPartial", Model.Cart)
+    </div>
+</div>

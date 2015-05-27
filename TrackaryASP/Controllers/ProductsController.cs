@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
 using TrackaryASP.Models;
+using TrackaryASP.ViewModels;
 
 namespace TrackaryASP.Controllers
 {
@@ -15,7 +16,11 @@ namespace TrackaryASP.Controllers
         // GET: Products
         public ActionResult Index()
         {
-            return View(db.Products.ToList());
+            ProductCartViewModel vm = new ProductCartViewModel();
+            vm.Products = db.Products.ToList();
+            vm.Cart = db.Carts.ToList();
+
+            return View(vm);
         }
 
         // GET: Products/Details/5
