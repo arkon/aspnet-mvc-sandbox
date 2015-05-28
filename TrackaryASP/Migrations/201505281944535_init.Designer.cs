@@ -7,13 +7,13 @@ namespace TrackaryASP.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.1-30610")]
-    public sealed partial class CustomProductsDict : IMigrationMetadata
+    public sealed partial class init : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(CustomProductsDict));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(init));
         
         string IMigrationMetadata.Id
         {
-            get { return "201505281830108_CustomProductsDict"; }
+            get { return "201505281944535_init"; }
         }
         
         string IMigrationMetadata.Source

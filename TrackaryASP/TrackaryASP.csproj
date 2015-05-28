@@ -167,29 +167,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201505281359492_CartDictionary.cs" />
-    <Compile Include="Migrations\201505281359492_CartDictionary.Designer.cs">
-      <DependentUpon>201505281359492_CartDictionary.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201505281511412_Transactions.cs" />
-    <Compile Include="Migrations\201505281511412_Transactions.Designer.cs">
-      <DependentUpon>201505281511412_Transactions.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201505281757178_ComputedTotalCost.cs" />
-    <Compile Include="Migrations\201505281757178_ComputedTotalCost.Designer.cs">
-      <DependentUpon>201505281757178_ComputedTotalCost.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201505281830108_CustomProductsDict.cs" />
-    <Compile Include="Migrations\201505281830108_CustomProductsDict.Designer.cs">
-      <DependentUpon>201505281830108_CustomProductsDict.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201505281846104_TotalCost.cs" />
-    <Compile Include="Migrations\201505281846104_TotalCost.Designer.cs">
-      <DependentUpon>201505281846104_TotalCost.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201505281916477_ModifyTransaction.cs" />
-    <Compile Include="Migrations\201505281916477_ModifyTransaction.Designer.cs">
-      <DependentUpon>201505281916477_ModifyTransaction.cs</DependentUpon>
+    <Compile Include="Migrations\201505281944535_init.cs" />
+    <Compile Include="Migrations\201505281944535_init.Designer.cs">
+      <DependentUpon>201505281944535_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -282,23 +262,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201505281359492_CartDictionary.resx">
-      <DependentUpon>201505281359492_CartDictionary.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505281511412_Transactions.resx">
-      <DependentUpon>201505281511412_Transactions.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505281757178_ComputedTotalCost.resx">
-      <DependentUpon>201505281757178_ComputedTotalCost.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505281830108_CustomProductsDict.resx">
-      <DependentUpon>201505281830108_CustomProductsDict.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505281846104_TotalCost.resx">
-      <DependentUpon>201505281846104_TotalCost.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505281916477_ModifyTransaction.resx">
-      <DependentUpon>201505281916477_ModifyTransaction.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201505281944535_init.resx">
+      <DependentUpon>201505281944535_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

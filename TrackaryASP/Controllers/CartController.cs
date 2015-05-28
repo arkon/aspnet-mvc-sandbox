@@ -45,7 +45,13 @@ namespace TrackaryASP.Controllers
                 return HttpNotFound();
             }
 
-            cartData.Add(product);
+            // Add item to cart (if available), and update the item's quantity
+            if (cartData.Add(product))
+            {
+                product.Quantity--;
+                db.Entry(product).State = EntityState.Modified;
+                db.SaveChanges();
+            }
 
             return RedirectToAction("Index", "Products");
         }
@@ -55,6 +61,18 @@ namespace TrackaryASP.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Clear()
         {
+            // Restore item quantities
+            foreach (ProductDictionary p in (this.Session["CartData"] as Cart).Products)
+            {
+                Product product = db.Products.Find(p.Key.ID);
+                if (product != null)
+                {
+                    product.Quantity += p.Value;
+                    db.Entry(product).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+            }
+
             this.Session["CartData"] = null;
 
             return RedirectToAction("Index", "Products");

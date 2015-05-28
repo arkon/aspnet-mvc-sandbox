@@ -3,18 +3,10 @@ namespace TrackaryASP.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class CartDictionary : DbMigration
+    public partial class init : DbMigration
     {
         public override void Up()
         {
-            CreateTable(
-                "dbo.Carts",
-                c => new
-                    {
-                        ID = c.Int(nullable: false, identity: true),
-                    })
-                .PrimaryKey(t => t.ID);
-            
             CreateTable(
                 "dbo.Customers",
                 c => new
@@ -40,13 +32,29 @@ namespace TrackaryASP.Migrations
                     })
                 .PrimaryKey(t => t.ID);
             
+            CreateTable(
+                "dbo.Transactions",
+                c => new
+                    {
+                        ID = c.Int(nullable: false, identity: true),
+                        TransactionDateTime = c.DateTime(nullable: false),
+                        Amount = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        Items = c.String(),
+                        Customer_ID = c.Int(),
+                    })
+                .PrimaryKey(t => t.ID)
+                .ForeignKey("dbo.Customers", t => t.Customer_ID)
+                .Index(t => t.Customer_ID);
+            
         }
         
         public override void Down()
         {
+            DropForeignKey("dbo.Transactions", "Customer_ID", "dbo.Customers");
+            DropIndex("dbo.Transactions", new[] { "Customer_ID" });
+            DropTable("dbo.Transactions");
             DropTable("dbo.Products");
             DropTable("dbo.Customers");
-            DropTable("dbo.Carts");
         }
     }
 }

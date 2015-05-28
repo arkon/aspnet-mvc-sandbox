@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="well">
+<div class="well container">
     @using (Html.BeginForm("Edit", "Products", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
@@ -51,7 +51,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    <input type="text" readonly="" class="form-control floating-label" placeholder="Browse...">
+                    <input type="text" readonly="" class="form-control floating-label" placeholder="Browse..." value="@Html.Raw(Model.Image)">
                     <input type="file" accept=".png,.jpg" id="Image" name="Image">
                 </div>
             </div>

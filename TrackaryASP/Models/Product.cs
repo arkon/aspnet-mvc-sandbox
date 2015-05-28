@@ -16,7 +16,7 @@ namespace TrackaryASP.Models
         [DataType(DataType.Currency)]
         public decimal Price { get; set; }
 
-        [Range(1, 1000)]
+        [Range(0, 1000)]
         public int Quantity { get; set; }
 
         public bool InStock

@@ -10,12 +10,7 @@ namespace TrackaryASP.Models
     [Serializable]
     public class Cart
     {
-        [Key]
-        public int ID { get; set; }
-
         public List<ProductDictionary> Products { get; set; }
-
-        private decimal _totalcost;
 
         [DataType(DataType.Currency)]
         [Display(Name = "Total Cost")]
@@ -23,18 +18,9 @@ namespace TrackaryASP.Models
         {
             get
             {
-                _totalcost = CalculateTotalCost();
-                return _totalcost;
+                decimal total = Products.Sum(x => x.Key.Price * x.Value);
+                return Decimal.Parse(total.ToString("0.00"));
             }
-            set {
-                _totalcost = CalculateTotalCost();
-            }
-        }
-
-        private decimal CalculateTotalCost()
-        {
-            decimal total = Products.Sum(x => x.Key.Price * x.Value);
-            return Decimal.Parse(total.ToString("0.00"));
         }
 
         public Cart()
@@ -42,18 +28,25 @@ namespace TrackaryASP.Models
             this.Products = new List<ProductDictionary>();
         }
 
-        public void Add(Product product)
+        public Boolean Add(Product product)
         {
-            ProductDictionary existing = Products.Find(p => p.Key.Name == product.Name);
+            if (product.InStock)
+            {
+                ProductDictionary existing = Products.Find(p => p.Key.Name == product.Name);
 
-            if (existing != null)
-            {
-                existing.Value++;
+                if (existing != null && product.Quantity - 1 >= 0)
+                {
+                    existing.Value++;
+                }
+                else
+                {
+                    Products.Add(new ProductDictionary { Key = product, Value = 1 });
+                }
+
+                return true;
             }
-            else
-            {
-                Products.Add(new ProductDictionary { Key = product, Value = 1 });
-            }
+
+            return false;
         }
 
         public override string ToString() {

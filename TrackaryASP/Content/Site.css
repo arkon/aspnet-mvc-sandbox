@@ -42,6 +42,10 @@ textarea {
     color: #fff;
 }
 
+.container-fluid {
+    padding: 0 1em;
+}
+
 .product-item {
     display: inline-block;
     list-style: none;

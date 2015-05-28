@@ -87,13 +87,16 @@
                                     }
                                 </p>
                             </div>
-                            <div class="panel-footer">
-                                @using (Html.BeginForm("AddItem", "Cart", new { ID = item.ID }, FormMethod.Post))
-                                {
-                                    @Html.AntiForgeryToken()
-                                    <input type="submit" value="Add to cart" class="btn btn-default" />
-                                }
-                            </div>
+
+                            @if (item.InStock) { 
+                                <div class="panel-footer">
+                                    @using (Html.BeginForm("AddItem", "Cart", new { ID = item.ID }, FormMethod.Post))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        <input type="submit" value="Add to cart" class="btn btn-default" />
+                                    }
+                                </div>
+                            }
                         </li>
                     }
                 </ul>
