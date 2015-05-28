@@ -20,7 +20,6 @@ namespace TrackaryASP.Controllers
             if (this.Session["CartData"] == null)
             {
                 var cartData = new Cart { };
-
                 this.Session["CartData"] = cartData;
             }
 
@@ -57,15 +56,7 @@ namespace TrackaryASP.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (Image != null)
-                {
-                    string imagePath = "~/Images/";
-                    if (!System.IO.Directory.Exists(Server.MapPath(imagePath)))
-                        System.IO.Directory.CreateDirectory(Server.MapPath(imagePath));
-
-                    Image.SaveAs(HttpContext.Server.MapPath(imagePath) + Image.FileName);
-                    product.Image = Image.FileName;
-                }
+                UploadImage(product, Image);
                 db.Products.Add(product);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -97,16 +88,18 @@ namespace TrackaryASP.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (Image != null)
-                {
-                    string imagePath = "~/Images/";
-                    if (!System.IO.Directory.Exists(Server.MapPath(imagePath)))
-                        System.IO.Directory.CreateDirectory(Server.MapPath(imagePath));
+                UploadImage(product, Image);
 
-                    Image.SaveAs(HttpContext.Server.MapPath(imagePath) + Image.FileName);
-                    product.Image = Image.FileName;
+                db.Products.Attach(product);
+
+                var entry = db.Entry(product);
+                entry.State = EntityState.Modified;
+
+                if (Image == null)
+                {
+                    entry.Property(e => e.Image).IsModified = false;
                 }
-                db.Entry(product).State = EntityState.Modified;
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -154,6 +147,19 @@ namespace TrackaryASP.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        private void UploadImage(Product product, HttpPostedFileBase Image)
+        {
+            if (Image != null)
+            {
+                string imagePath = "~/Images/";
+                if (!System.IO.Directory.Exists(Server.MapPath(imagePath)))
+                    System.IO.Directory.CreateDirectory(Server.MapPath(imagePath));
+
+                Image.SaveAs(HttpContext.Server.MapPath(imagePath) + Image.FileName);
+                product.Image = Image.FileName;
+            }
         }
     }
 }
