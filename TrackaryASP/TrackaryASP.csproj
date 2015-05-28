@@ -175,6 +175,10 @@
     <Compile Include="Migrations\201505281511412_Transactions.Designer.cs">
       <DependentUpon>201505281511412_Transactions.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201505281757178_ComputedTotalCost.cs" />
+    <Compile Include="Migrations\201505281757178_ComputedTotalCost.Designer.cs">
+      <DependentUpon>201505281757178_ComputedTotalCost.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -270,6 +274,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201505281511412_Transactions.resx">
       <DependentUpon>201505281511412_Transactions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505281757178_ComputedTotalCost.resx">
+      <DependentUpon>201505281757178_ComputedTotalCost.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

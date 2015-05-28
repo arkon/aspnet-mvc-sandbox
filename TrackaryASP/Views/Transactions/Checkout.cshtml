@@ -54,7 +54,7 @@
             </div>
             
             @if (@Session["CartData"] != null) { 
-                <p id="cart-total">Total: $@((Session["CartData"] as TrackaryASP.Models.Cart).TotalCost.ToString())</p>
+                <p id="cart-total">Total: $@((Session["CartData"] as TrackaryASP.Models.Cart).TotalCost)</p>
             }
 
             <div class="form-group">

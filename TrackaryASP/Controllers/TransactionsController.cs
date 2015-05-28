@@ -44,15 +44,17 @@ namespace TrackaryASP.Controllers
         public ActionResult Checkout([Bind(Include = "ID")] Transaction transaction)
         {
             if (ModelState.IsValid && this.Session["CartData"] != null)
-            {
-                transaction.Cart = this.Session["CartData"] as Cart;
-                //this.Session["CartData"] = null;
+            {   
+                Cart cart = this.Session["CartData"] as Cart;
+                db.Carts.Add(cart);
+                transaction.Cart = cart;
+                this.Session["CartData"] = null;
 
                 transaction.TransactionDateTime = DateTime.Now;
 
                 db.Transactions.Add(transaction);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Products");
             }
 
             return View(transaction);
