@@ -8,7 +8,7 @@ namespace TrackaryASP.Migrations
 
     internal sealed class Configuration : DbMigrationsConfiguration<TrackaryASP.Models.TrackaryDbContext>
     {
-        private static Boolean SEED = true;
+        private static Boolean SEED = false;
 
         public Configuration()
         {

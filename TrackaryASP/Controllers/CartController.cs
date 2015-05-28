@@ -22,7 +22,18 @@ namespace TrackaryASP.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult AddItem(int? id)
         {
-            var cartData = this.Session["CartData"] as Cart;
+            Cart cartData;
+            if (this.Session["CartData"] == null)
+            {
+                cartData = new Cart { };
+
+                this.Session["CartData"] = cartData;
+            }
+            else
+            {
+                cartData = this.Session["CartData"] as Cart;
+            }
+
             Product product = db.Products.Find(id);
             if (product != null)
             {
