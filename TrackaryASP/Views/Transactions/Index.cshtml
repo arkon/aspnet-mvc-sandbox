@@ -14,7 +14,7 @@
                 @Html.DisplayNameFor(model => model.TransactionDateTime)
             </th>
             <th>
-                Amount
+                @Html.DisplayNameFor(model => model.Amount)
             </th>
             <th></th>
         </tr>
@@ -26,7 +26,7 @@
                     @Html.DisplayFor(modelItem => item.TransactionDateTime)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Cart.TotalCost)
+                    @Html.DisplayFor(modelItem => item.Amount)
                 </td>
                 <td>
                     @Html.ActionLink("Details", "Details", new { id = item.ID }) |

@@ -55,6 +55,17 @@ namespace TrackaryASP.Migrations
                         TCardBarcode = "1564156705671595"
                     }
                 );
+
+                //var defaults = new List<ProductDictionary>
+                //{
+                //    new ProductDictionary {Key = "Top", Value = 5},
+                //    new ProductDictionary {Key = "Bottom", Value = 7},
+                //    new ProductDictionary {Key = "Left", Value = 1},
+                //    new ProductDictionary {Key = "Right", Value = 3}
+                //};
+
+                //foreach (var c in defaults)
+                //    context.Carts.Add(c);
             }
         }
     }

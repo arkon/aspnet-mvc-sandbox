@@ -179,6 +179,18 @@
     <Compile Include="Migrations\201505281757178_ComputedTotalCost.Designer.cs">
       <DependentUpon>201505281757178_ComputedTotalCost.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201505281830108_CustomProductsDict.cs" />
+    <Compile Include="Migrations\201505281830108_CustomProductsDict.Designer.cs">
+      <DependentUpon>201505281830108_CustomProductsDict.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201505281846104_TotalCost.cs" />
+    <Compile Include="Migrations\201505281846104_TotalCost.Designer.cs">
+      <DependentUpon>201505281846104_TotalCost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201505281916477_ModifyTransaction.cs" />
+    <Compile Include="Migrations\201505281916477_ModifyTransaction.Designer.cs">
+      <DependentUpon>201505281916477_ModifyTransaction.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -186,6 +198,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductDictionary.cs" />
     <Compile Include="Models\Transaction.cs" />
     <Compile Include="Models\TrackaryDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -277,6 +290,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201505281757178_ComputedTotalCost.resx">
       <DependentUpon>201505281757178_ComputedTotalCost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505281830108_CustomProductsDict.resx">
+      <DependentUpon>201505281830108_CustomProductsDict.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505281846104_TotalCost.resx">
+      <DependentUpon>201505281846104_TotalCost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505281916477_ModifyTransaction.resx">
+      <DependentUpon>201505281916477_ModifyTransaction.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -46,8 +46,8 @@ namespace TrackaryASP.Controllers
             if (ModelState.IsValid && this.Session["CartData"] != null)
             {   
                 Cart cart = this.Session["CartData"] as Cart;
-                db.Carts.Add(cart);
-                transaction.Cart = cart;
+                transaction.Amount = cart.TotalCost;
+                transaction.Items = cart.ToString();
                 this.Session["CartData"] = null;
 
                 transaction.TransactionDateTime = DateTime.Now;

@@ -11,7 +11,10 @@ namespace TrackaryASP.Models
         [Display(Name = "Date/Time")]
         public DateTime TransactionDateTime { get; set; }
 
-        public virtual Cart Cart { get; set; }
+        [DataType(DataType.Currency)]
+        public decimal Amount { get; set; }
+
+        public String Items { get; set; }
 
         public virtual Customer Customer { get; set; }
     }
