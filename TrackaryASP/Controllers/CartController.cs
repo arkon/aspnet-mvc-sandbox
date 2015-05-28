@@ -22,6 +22,11 @@ namespace TrackaryASP.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult AddItem(int? id)
         {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
             Cart cartData;
             if (this.Session["CartData"] == null)
             {
@@ -35,10 +40,12 @@ namespace TrackaryASP.Controllers
             }
 
             Product product = db.Products.Find(id);
-            if (product != null)
+            if (product == null)
             {
-                cartData.Add(product);
+                return HttpNotFound();
             }
+
+            cartData.Add(product);
 
             return RedirectToAction("Index", "Products");
         }
