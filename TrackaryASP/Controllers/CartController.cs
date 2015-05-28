@@ -69,9 +69,10 @@ namespace TrackaryASP.Controllers
                 {
                     product.Quantity += p.Value;
                     db.Entry(product).State = EntityState.Modified;
-                    db.SaveChanges();
                 }
             }
+
+            db.SaveChanges();
 
             this.Session["CartData"] = null;
 
