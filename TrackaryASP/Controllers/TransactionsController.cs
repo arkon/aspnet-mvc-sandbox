@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using TrackaryASP.Models;
 
@@ -45,10 +41,15 @@ namespace TrackaryASP.Controllers
         // POST: Transactions/Checkout
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Checkout([Bind(Include = "ID,TransactionDateTime")] Transaction transaction)
+        public ActionResult Checkout([Bind(Include = "ID")] Transaction transaction)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && this.Session["CartData"] != null)
             {
+                transaction.Cart = this.Session["CartData"] as Cart;
+                //this.Session["CartData"] = null;
+
+                transaction.TransactionDateTime = DateTime.Now;
+
                 db.Transactions.Add(transaction);
                 db.SaveChanges();
                 return RedirectToAction("Index");

@@ -13,6 +13,7 @@ namespace TrackaryASP.Models
         public virtual SortedDictionary<Product, int> Products { get; set; }
 
         [DataType(DataType.Currency)]
+        [Display(Name = "Total Cost")]
         public decimal TotalCost
         {
             get
