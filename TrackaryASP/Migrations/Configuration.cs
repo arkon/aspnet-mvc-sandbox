@@ -38,6 +38,23 @@ namespace TrackaryASP.Migrations
                         Image = "fanta.jpg"
                     }
                 );
+
+                context.Customers.AddOrUpdate(
+                    new Customer
+                    {
+                        Name = "Jay Webb",
+                        Email = "jwebb@mail.utoronto.ca",
+                        StudentNumber = 1000123456,
+                        TCardBarcode = "2172954897462019"
+                    },
+                    new Customer
+                    {
+                        Name = "Matoi Ryouko",
+                        Email = "mryouko@kiryuin.jp",
+                        StudentNumber = 0999498108,
+                        TCardBarcode = "1564156705671595"
+                    }
+                );
             }
         }
     }
