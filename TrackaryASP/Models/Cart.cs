@@ -18,7 +18,7 @@ namespace TrackaryASP.Models
         {
             get
             {
-                return Products.Sum(x => x.Price);
+                return Decimal.Parse(Products.Sum(x => x.Price).ToString("0.00"));
             }
         }
     }
