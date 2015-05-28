@@ -18,10 +18,7 @@ namespace TrackaryASP.Controllers
         {
             if (this.Session["CartData"] == null)
             {
-                var cartData = new Cart
-                {
-                    Products = new List<Product>()
-                };
+                var cartData = new Cart { };
 
                 this.Session["CartData"] = cartData;
             }

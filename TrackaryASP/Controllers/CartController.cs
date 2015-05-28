@@ -26,7 +26,7 @@ namespace TrackaryASP.Controllers
             Product product = db.Products.Find(id);
             if (product != null)
             {
-                cartData.Products.Add(product);
+                cartData.Add(product);
             }
 
             return RedirectToAction("Index", "Products");

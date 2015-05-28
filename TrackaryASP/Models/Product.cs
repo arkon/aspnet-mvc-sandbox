@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace TrackaryASP.Models
 {
-    public class Product
+    public class Product : IComparable<Product>
     {
         [Key]
         public int ID { get; set; }
@@ -28,5 +29,10 @@ namespace TrackaryASP.Models
 
         [DataType(DataType.ImageUrl)]
         public string Image { get; set; }
+
+        public int CompareTo(Product other)
+        {
+            return String.Compare(this.Name, other.Name, StringComparison.OrdinalIgnoreCase);
+        }
     }
 }

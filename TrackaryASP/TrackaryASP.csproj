@@ -166,29 +166,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201505262010570_InitialCreate.cs" />
-    <Compile Include="Migrations\201505262010570_InitialCreate.Designer.cs">
-      <DependentUpon>201505262010570_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201505271522164_Initial.cs" />
-    <Compile Include="Migrations\201505271522164_Initial.Designer.cs">
-      <DependentUpon>201505271522164_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201505271603358_TCardString.cs" />
-    <Compile Include="Migrations\201505271603358_TCardString.Designer.cs">
-      <DependentUpon>201505271603358_TCardString.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201505271910470_UpdateCart.cs" />
-    <Compile Include="Migrations\201505271910470_UpdateCart.Designer.cs">
-      <DependentUpon>201505271910470_UpdateCart.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201505272039357_RefactorCartSessions.cs" />
-    <Compile Include="Migrations\201505272039357_RefactorCartSessions.Designer.cs">
-      <DependentUpon>201505272039357_RefactorCartSessions.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201505272050348_RefactorCartSessions2.cs" />
-    <Compile Include="Migrations\201505272050348_RefactorCartSessions2.Designer.cs">
-      <DependentUpon>201505272050348_RefactorCartSessions2.cs</DependentUpon>
+    <Compile Include="Migrations\201505281359492_CartDictionary.cs" />
+    <Compile Include="Migrations\201505281359492_CartDictionary.Designer.cs">
+      <DependentUpon>201505281359492_CartDictionary.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -281,23 +261,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201505262010570_InitialCreate.resx">
-      <DependentUpon>201505262010570_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505271522164_Initial.resx">
-      <DependentUpon>201505271522164_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505271603358_TCardString.resx">
-      <DependentUpon>201505271603358_TCardString.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505271910470_UpdateCart.resx">
-      <DependentUpon>201505271910470_UpdateCart.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505272039357_RefactorCartSessions.resx">
-      <DependentUpon>201505272039357_RefactorCartSessions.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505272050348_RefactorCartSessions2.resx">
-      <DependentUpon>201505272050348_RefactorCartSessions2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201505281359492_CartDictionary.resx">
+      <DependentUpon>201505281359492_CartDictionary.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
