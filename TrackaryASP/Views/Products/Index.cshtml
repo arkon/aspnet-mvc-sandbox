@@ -54,7 +54,7 @@
         <div class="fab-container">
             <a href="@Url.Action("Create")" class="btn btn-primary btn-fab btn-raised mdi-content-add"></a>
 
-            <ul>
+            <ul id="products-grid">
                 @foreach (var item in Model)
                 {
                     <li class="product-item panel panel-default">
