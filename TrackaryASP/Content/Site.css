@@ -42,6 +42,16 @@ textarea {
     color: #fff;
 }
 
+#products-list {
+    border-right: none;
+}
+
+@media (min-width: 992px) {
+    #products-list {
+        border-right: 1px solid #ccc;
+    }
+}
+
 #products-grid {
     padding: 0;
 }
