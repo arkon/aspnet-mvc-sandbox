@@ -7,6 +7,7 @@ using TrackaryASP.ViewModels;
 
 namespace TrackaryASP.Controllers
 {
+    [Authorize]
     public class TransactionsController : Controller
     {
         private TrackaryDbContext db = new TrackaryDbContext();

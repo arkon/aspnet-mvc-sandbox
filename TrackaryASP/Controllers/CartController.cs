@@ -7,6 +7,7 @@ using TrackaryASP.Models;
 
 namespace TrackaryASP.Controllers
 {
+    [Authorize]
     public class CartController : Controller
     {
         private TrackaryDbContext db = new TrackaryDbContext();

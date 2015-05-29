@@ -7,6 +7,7 @@ using TrackaryASP.ViewModels;
 
 namespace TrackaryASP.Controllers
 {
+    [Authorize]
     public class CustomersController : Controller
     {
         private TrackaryDbContext db = new TrackaryDbContext();
@@ -38,7 +39,6 @@ namespace TrackaryASP.Controllers
         }
 
         // GET: Customers/Create
-        [Authorize(Roles = "admin")]
         public ActionResult Create()
         {
             return View();

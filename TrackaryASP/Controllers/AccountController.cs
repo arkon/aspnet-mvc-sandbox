@@ -272,7 +272,7 @@ namespace TrackaryASP.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Products");
         }
 
         protected override void Dispose(bool disposing)
@@ -321,7 +321,7 @@ namespace TrackaryASP.Controllers
             {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Products");
         }
 
         internal class ChallengeResult : HttpUnauthorizedResult
