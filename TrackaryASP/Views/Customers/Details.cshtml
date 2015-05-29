@@ -74,7 +74,7 @@
         @foreach (var item in Model.Transactions)
         {
             <dt>@item.TransactionDateTime: $@item.Amount</dt>
-            <dd>@item.Items</dd>
+            <dd>@Html.Raw(Html.Encode(item.Items).Replace("\n", "<br>"))</dd>
         }
     </dl>
 }
