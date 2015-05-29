@@ -17,6 +17,8 @@ namespace TrackaryASP.Models
         [Display(Name = "Student number")]
         public int StudentNumber { get; set; }
 
+        public string UTORid { get; set; }
+
         [Display(Name = "TCard Barcode")]
         public string TCardBarcode { get; set; }
     }

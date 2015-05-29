@@ -43,6 +43,7 @@ namespace TrackaryASP.Migrations
                         Name = "Jay Webb",
                         Email = "jwebb@mail.utoronto.ca",
                         StudentNumber = 1000123456,
+                        UTORid = "webbjo123",
                         TCardBarcode = "2172954897462019"
                     },
                     new Customer
@@ -50,20 +51,10 @@ namespace TrackaryASP.Migrations
                         Name = "Matoi Ryouko",
                         Email = "mryouko@kiryuin.jp",
                         StudentNumber = 0999498108,
+                        UTORid = "ryouko666",
                         TCardBarcode = "1564156705671595"
                     }
                 );
-
-                //var defaults = new List<ProductDictionary>
-                //{
-                //    new ProductDictionary {Key = "Top", Value = 5},
-                //    new ProductDictionary {Key = "Bottom", Value = 7},
-                //    new ProductDictionary {Key = "Left", Value = 1},
-                //    new ProductDictionary {Key = "Right", Value = 3}
-                //};
-
-                //foreach (var c in defaults)
-                //    context.Carts.Add(c);
             }
         }
     }

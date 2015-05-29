@@ -35,6 +35,14 @@
     </dd>
 
     <dt>
+        @Html.DisplayNameFor(model => model.Customer.UTORid)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Customer.UTORid)
+    </dd>
+
+    <dt>
         @Html.DisplayNameFor(model => model.Customer.TCardBarcode)
     </dt>
 
@@ -48,12 +56,13 @@
 {
     <h4>Transactions</h4>
     <hr />
-    <ul>
+    <dl class="dl-horizontal">
         @foreach (var item in Model.Transactions)
         {
-            <li>@item.TransactionDateTime: $@item.Amount<br />@item.Items</li>
+            <dt>@item.TransactionDateTime: $@item.Amount</dt>
+            <dd>@item.Items</dd>
         }
-    </ul>
+    </dl>
 }
 
 <p>

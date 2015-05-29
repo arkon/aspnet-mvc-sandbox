@@ -48,28 +48,33 @@ namespace TrackaryASP.Controllers
         {
             if (ModelState.IsValid && this.Session["CartData"] != null)
             {
-                // Current date and time
-                transaction.TransactionDateTime = DateTime.Now;
-
                 // Cart contents and total cost
                 Cart cart = this.Session["CartData"] as Cart;
-                transaction.Amount = cart.TotalCost;
-                transaction.Items = cart.ToString();
-                this.Session["CartData"] = null;
 
-                // (Optional) purchaser
-                if (viewModel.PickedCustomerID != null)
+                // Only proceed if there's actually things in the Cart
+                if (cart.TotalCost > 0)
                 {
-                    Customer purchaser = db.Customers.Find(viewModel.PickedCustomerID);
-                    if (purchaser != null)
-                    {
-                        transaction.Customer = purchaser;
-                    }
-                }                
+                    transaction.Amount = cart.TotalCost;
+                    transaction.Items = cart.ToString();
+                    this.Session["CartData"] = null;
 
-                db.Transactions.Add(transaction);
-                db.SaveChanges();
-                return RedirectToAction("Index", "Products");
+                    // Current date and time
+                    transaction.TransactionDateTime = DateTime.Now;
+
+                    // (Optional) purchaser
+                    if (viewModel.PickedCustomerID != null)
+                    {
+                        Customer purchaser = db.Customers.Find(viewModel.PickedCustomerID);
+                        if (purchaser != null)
+                        {
+                            transaction.Customer = purchaser;
+                        }
+                    }
+
+                    db.Transactions.Add(transaction);
+                    db.SaveChanges();
+                    return RedirectToAction("Index", "Products");
+                }
             }
 
             return View(transaction);
@@ -82,6 +87,7 @@ namespace TrackaryASP.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Transaction transaction = db.Transactions.Find(id);
             if (transaction == null)
             {
