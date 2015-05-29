@@ -51,11 +51,14 @@
         </div>
     }
 
-    <div class="@(Request.IsAuthenticated ? "col-md-8 col-md-pull-4" : "")" id="@(Request.IsAuthenticated ? "products-list" : "")">
+    <div class="@(Request.IsAuthenticated ? "col-md-8 col-md-pull-4" : "col-md-12")" id="@(Request.IsAuthenticated ? "products-list" : "")">
         <h2>Products</h2>
 
         <div class="fab-container">
-            <a href="@Url.Action("Create")" class="btn btn-primary btn-fab btn-raised mdi-content-add"></a>
+            @if (Request.IsAuthenticated)
+            {
+                <a href="@Url.Action("Create")" class="btn btn-primary btn-fab btn-raised mdi-content-add"></a>
+            }
 
             <ul id="products-grid">
                 @foreach (var item in Model)
