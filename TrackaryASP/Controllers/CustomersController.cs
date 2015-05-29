@@ -38,6 +38,7 @@ namespace TrackaryASP.Controllers
         }
 
         // GET: Customers/Create
+        [Authorize(Roles = "admin")]
         public ActionResult Create()
         {
             return View();

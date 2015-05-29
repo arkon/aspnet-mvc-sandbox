@@ -10,6 +10,7 @@ namespace TrackaryASP.Models
         public string Name { get; set; }
 
         [DataType(DataType.EmailAddress)]
+        [EmailAddress]
         [Display(Name = "Email address")]
         public string Email { get; set; }
 
