@@ -3,6 +3,7 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using TrackaryASP.Models;
+using TrackaryASP.ViewModels;
 
 namespace TrackaryASP.Controllers
 {
@@ -23,12 +24,17 @@ namespace TrackaryASP.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Customer customer = db.Customers.Find(id);
             if (customer == null)
             {
                 return HttpNotFound();
             }
-            return View(customer);
+
+            var viewModel = new CustomerTransactionViewModel();
+            viewModel.Customer = customer;
+            viewModel.Transactions = db.Transactions.Where(t => t.Customer.ID == id).ToList();
+            return View(viewModel);
         }
 
         // GET: Customers/Create

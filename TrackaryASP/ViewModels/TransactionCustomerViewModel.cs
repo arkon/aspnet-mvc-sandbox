@@ -3,6 +3,9 @@ using TrackaryASP.Models;
 
 namespace TrackaryASP.ViewModels
 {
+    /// <summary>
+    /// For displaying a list of all Customers on the Transaction Checkout page.
+    /// </summary>
     public class TransactionCustomerViewModel
     {
         public Transaction Transaction { get; set; }
