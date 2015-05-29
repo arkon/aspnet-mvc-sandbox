@@ -96,7 +96,7 @@
                             </p>
                         </div>
 
-                        @if (item.InStock)
+                        @if (item.InStock && Request.IsAuthenticated)
                         {
                             <div class="panel-footer">
                                 @using (Html.BeginForm("AddItem", "Cart", new { ID = item.ID }, FormMethod.Post))
