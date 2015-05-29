@@ -54,7 +54,7 @@ namespace TrackaryASP.Models
 
             foreach (ProductDictionary p in Products)
             {
-                sb.AppendFormat("{0} x {1} @ {2} each\n", p.Value, p.Key.Name, p.Key.Price);
+                sb.AppendFormat("{0} x {1} @ ${2} each\n", p.Value, p.Key.Name, p.Key.Price);
             }
 
             return sb.ToString();

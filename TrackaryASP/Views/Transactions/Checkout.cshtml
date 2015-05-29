@@ -1,4 +1,4 @@
-﻿@model TrackaryASP.Models.Transaction
+﻿@model TrackaryASP.ViewModels.TransactionCustomerViewModel
 
 @{
     ViewBag.Title = "Checkout";
@@ -24,7 +24,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @if (@Session["CartData"] != null) { 
+                    @if (@Session["CartData"] != null)
+                    {
                         foreach (var item in (Session["CartData"] as TrackaryASP.Models.Cart).Products)
                         {
                             <tr>
@@ -41,24 +42,22 @@
         <div class="form-group">
             <label for="select" class="col-lg-2 control-label">Customer (optional)</label>
             <div class="col-lg-10">
-                <select class="form-control" id="select">
-                    <option>None</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </select>
+                @Html.DropDownListFor(m => m.PickedCustomerID, new SelectList(Model.Customers, "ID", "Name"), "None", new { @class = "form-control" })
             </div>
         </div>
-            
-        @if (@Session["CartData"] != null) { 
-            <p id="cart-total">Total: $@((Session["CartData"] as TrackaryASP.Models.Cart).TotalCost)</p>
-        }
 
         <div class="form-group">
-            <div class="col-lg-10 col-lg-offset-2">
+            <div class="pull-right">
+                @if (@Session["CartData"] != null)
+                {
+                    <p id="cart-total">Total: <strong>$@((Session["CartData"] as TrackaryASP.Models.Cart).TotalCost)</strong></p>
+                }
+
                 <a href="@Url.Action("Index", "Products")" class="btn btn-default">Cancel</a>
+                @using (Html.BeginForm("Clear", "Cart", FormMethod.Post, new { id = "cart-clear" }))
+                {
+                    <button type="submit" class="btn btn-default">Clear</button>
+                }
                 <input type="submit" value="Checkout" class="btn btn-primary" />
             </div>
         </div>

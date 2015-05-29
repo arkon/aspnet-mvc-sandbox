@@ -3,6 +3,7 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using TrackaryASP.Models;
+using TrackaryASP.ViewModels;
 
 namespace TrackaryASP.Controllers
 {
@@ -35,22 +36,36 @@ namespace TrackaryASP.Controllers
         // GET: Transactions/Checkout
         public ActionResult Checkout()
         {
-            return View();
+            var viewModel = new TransactionCustomerViewModel();
+            viewModel.Customers = db.Customers;
+            return View(viewModel);
         }
 
         // POST: Transactions/Checkout
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Checkout([Bind(Include = "ID")] Transaction transaction)
+        public ActionResult Checkout([Bind(Include = "ID")] Transaction transaction, TransactionCustomerViewModel viewModel)
         {
             if (ModelState.IsValid && this.Session["CartData"] != null)
-            {   
+            {
+                // Current date and time
+                transaction.TransactionDateTime = DateTime.Now;
+
+                // Cart contents and total cost
                 Cart cart = this.Session["CartData"] as Cart;
                 transaction.Amount = cart.TotalCost;
                 transaction.Items = cart.ToString();
                 this.Session["CartData"] = null;
 
-                transaction.TransactionDateTime = DateTime.Now;
+                // (Optional) purchaser
+                if (viewModel.PickedCustomerID != null)
+                {
+                    Customer purchaser = db.Customers.Find(viewModel.PickedCustomerID);
+                    if (purchaser != null)
+                    {
+                        transaction.Customer = purchaser;
+                    }
+                }                
 
                 db.Transactions.Add(transaction);
                 db.SaveChanges();

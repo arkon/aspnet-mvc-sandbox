@@ -31,6 +31,17 @@
     <dd>
         @Html.Raw(Html.Encode(Model.Items).Replace("\n", "<br>"))
     </dd>
+
+    @if (Model.Customer != null)
+    {
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer)
+        </dd>
+    }
 </dl>
 
 <p>
