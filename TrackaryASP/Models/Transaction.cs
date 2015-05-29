@@ -14,6 +14,9 @@ namespace TrackaryASP.Models
         [DataType(DataType.Currency)]
         public decimal Amount { get; set; }
 
+        [DataType(DataType.Currency)]
+        public decimal Rewards { get; set; }
+
         public String Items { get; set; }
 
         public virtual Customer Customer { get; set; }

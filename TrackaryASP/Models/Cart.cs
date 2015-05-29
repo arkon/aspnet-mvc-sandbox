@@ -23,6 +23,17 @@ namespace TrackaryASP.Models
             }
         }
 
+        [DataType(DataType.Currency)]
+        [Display(Name = "Total Reward")]
+        public decimal TotalReward
+        {
+            get
+            {
+                decimal total = Products.Sum(x => x.Key.Reward * x.Value);
+                return Decimal.Parse(total.ToString("0.00"));
+            }
+        }
+
         public Cart()
         {
             this.Products = new List<ProductDictionary>();

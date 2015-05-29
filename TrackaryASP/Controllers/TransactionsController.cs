@@ -55,6 +55,7 @@ namespace TrackaryASP.Controllers
                 if (cart.TotalCost > 0)
                 {
                     transaction.Amount = cart.TotalCost;
+                    transaction.Rewards = cart.TotalReward;
                     transaction.Items = cart.ToString();
                     this.Session["CartData"] = null;
 
@@ -67,7 +68,11 @@ namespace TrackaryASP.Controllers
                         Customer purchaser = db.Customers.Find(viewModel.PickedCustomerID);
                         if (purchaser != null)
                         {
+                            // Associate this Transaction with the Customer
                             transaction.Customer = purchaser;
+
+                            // Add rewards to Customer's account
+                            purchaser.Rewards += cart.TotalReward;
                         }
                     }
 

@@ -26,6 +26,9 @@
         <th>
             @Html.DisplayNameFor(model => model.TCardBarcode)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rewards)
+        </th>
         <th></th>
     </tr>
 
@@ -48,6 +51,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.TCardBarcode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rewards)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |

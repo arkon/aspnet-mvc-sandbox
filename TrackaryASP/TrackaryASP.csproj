@@ -175,6 +175,14 @@
     <Compile Include="Migrations\201505291806068_utorid.Designer.cs">
       <DependentUpon>201505291806068_utorid.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201505291825507_rewards.cs" />
+    <Compile Include="Migrations\201505291825507_rewards.Designer.cs">
+      <DependentUpon>201505291825507_rewards.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201505291835083_calculaterewards.cs" />
+    <Compile Include="Migrations\201505291835083_calculaterewards.Designer.cs">
+      <DependentUpon>201505291835083_calculaterewards.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -275,6 +283,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201505291806068_utorid.resx">
       <DependentUpon>201505291806068_utorid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505291825507_rewards.resx">
+      <DependentUpon>201505291825507_rewards.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505291835083_calculaterewards.resx">
+      <DependentUpon>201505291835083_calculaterewards.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

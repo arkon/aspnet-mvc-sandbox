@@ -16,6 +16,10 @@ namespace TrackaryASP.Models
         [DataType(DataType.Currency)]
         public decimal Price { get; set; }
 
+        [DataType(DataType.Currency)]
+        [Display(Name = "Reward Cashback")]
+        public decimal Reward { get; set; }
+
         [Range(0, 1000)]
         public int Quantity { get; set; }
 

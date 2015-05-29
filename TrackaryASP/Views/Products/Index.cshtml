@@ -75,6 +75,9 @@
                                 @Html.DisplayFor(modelItem => item.Description)
                             </p>
                             <p>
+                                Reward: @Html.DisplayFor(modelItem => item.Reward)
+                            </p>
+                            <p>
                                 @if (item.InStock)
                                 {
                                     @Html.Raw("Quantity: ")

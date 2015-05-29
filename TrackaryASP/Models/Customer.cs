@@ -21,5 +21,8 @@ namespace TrackaryASP.Models
 
         [Display(Name = "TCard Barcode")]
         public string TCardBarcode { get; set; }
+
+        [DataType(DataType.Currency)]
+        public decimal Rewards { get; set; }
     }
 }
