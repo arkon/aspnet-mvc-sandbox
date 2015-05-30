@@ -29,7 +29,7 @@ cd trackary/TrackaryASP
 bower install
 ```
 
-Use Visual Studio 2013 (or higher) for development and testing.
+Use [Visual Studio 2013](https://www.visualstudio.com/) (or higher) for development and testing.
 
 ### Deployment
 
