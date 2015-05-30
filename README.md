@@ -26,7 +26,7 @@ The dependencies can be installed by running:
 
 ```shell
 cd trackary/TrackaryASP
-bower install
+bower install --save bootstrap-material-design
 ```
 
 Use [Visual Studio 2013](https://www.visualstudio.com/) (or higher) for development and testing.
