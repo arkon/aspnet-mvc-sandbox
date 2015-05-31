@@ -17,20 +17,4 @@ This is an ASP.NET MVC 5 app, consisting of two main components:
 
 ### Development
 
-You need the following prerequisites:
-
-- [Node.js and npm](https://nodejs.org/)
-- [bower](http://bower.io/)
-
-The dependencies can be installed by running:
-
-```shell
-cd trackary/TrackaryASP
-bower install --save bootstrap-material-design
-```
-
 Use [Visual Studio 2013](https://www.visualstudio.com/) (or higher) for development and testing.
-
-### Deployment
-
-Coming soon?
