@@ -54,7 +54,8 @@ namespace TrackaryASP.Controllers
         [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult Create(
-            [Bind(Include = "ID,Name,Description,Price,Quantity,Image")] Product product, HttpPostedFileBase Image)
+            [Bind(Include = "ID,Name,Description,Price,Reward,Quantity,Image")] Product product, 
+            HttpPostedFileBase Image)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +89,9 @@ namespace TrackaryASP.Controllers
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,Description,Price,Quantity,Image")] Product product, HttpPostedFileBase Image)
+        public ActionResult Edit(
+            [Bind(Include = "ID,Name,Description,Price,Reward,Quantity,Image")] Product product, 
+            HttpPostedFileBase Image)
         {
             if (ModelState.IsValid)
             {
